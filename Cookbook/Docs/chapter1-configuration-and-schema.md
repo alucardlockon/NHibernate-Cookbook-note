@@ -202,4 +202,152 @@ Dialect(方言)(创建sql语法) | Connection Provider(连接提供者)(打开或关闭连接) | D
     ```
 4. 运行
 
+## 6.Configuring NHibernate logging 配置NHibernate日志
+NHibernate提供了一个log4net的日志提供器。
+1. nuget安装log4net
+2. 打开config文件(app or web.config)
+3. 添加log4net节点:
+    ```xml
+    <section name="log4net"
+    type="log4net.Config.Log4NetConfigurationSectionHandler, log4net"/>
+    ```
+4. 添加log4net配置:
+    ```xml
+    <log4net>
+    <appender name="trace" type="log4net.Appender.TraceAppender, log4net">
+    ? <layout type="log4net.Layout.PatternLayout, log4net">
+    ? <param name="ConversionPattern"  value=" %date %level %message%newline" />
+    ? </layout>
+    </appender>
+    <root>
+    ? <level value="ALL" />
+    ? <appender-ref ref="trace" />
+    </root>
+    <logger name="NHibernate">
+    ? <level value="INFO" />
+    </logger>
+    </log4net>
+    ```
+5. 在main方法的最前面加入:
+    ```c#
+    log4net.Config.XmlConfigurator.Configure();
+    ```
+6. 运行，观察你的debug窗口
 
+* 可以使用下面的方法输出日志:
+    ```c#
+    using System.IO;
+    using log4net;
+    namespace MyApp.Project.SomeNamespace
+    {
+    ??? public class Foo
+    ??? {
+    ??????? private static ILog log = LogManager.GetLogger(typeof(Foo));
+    
+    ??????? public string DoSomething()
+    ??????? {
+    ??????????? log.Debug("We're doing something.");
+    ??????????? try
+    ??????????? {
+    ??????????????? return File.ReadAllText("cheese.txt");
+    ??????????? }
+    ??????????? catch (FileNotFoundException)
+    ??????????? {
+    ??????????????? log.Error("Somebody moved my cheese.txt");
+    ??????????????? throw;
+    ??????????? }
+    ??????? }
+    ??? }
+    }
+    ```
+
+## 7.Generating the database 生成数据库
+1. 打开Program.cs
+2. 添加引用:
+    ```c#
+    using Eg.Core;
+    using NHibernate.Mapping.ByCode; 
+    using NHibernate.Tool.hbm2ddl;
+    ```
+3. 编辑Main方法:
+    ```c#
+    var nhConfig = new Configuration().Configure();
+    var mapper=new ConventionModelMapper();
+    nhConfig.AddMapping(mapper.CompileMappingFor(new[] {typeof (TestClass)}));
+    
+    var schemaExport = new SchemaExport(nhConfig);
+    schemaExport.Create(false, true);
+    
+    Console.WriteLine("The tables have been created"));
+    Console.ReadKey();
+    ```
+4. 运行，观察你的数据库是否有表建好了。
+
+* 可使用update，create,create-drop,validate四种模式创建数据库。
+
+## 8.Scripting the database 生成数据库脚本
+1. 打开Program.cs
+2. 添加引用:
+    ```c#
+    using Eg.Core;
+    using NHibernate.Mapping.ByCode; 
+    using NHibernate.Tool.hbm2ddl;
+    ```
+3. 编辑Main方法:
+    ```c#
+    var nhConfig = new Configuration().Configure();
+    var mapper = new ConventionModelMapper();
+    nhConfig.AddMapping(mapper.CompileMappingFor(new[] { typeof(TestClass) }));
+    
+    var schemaExport = new SchemaExport(nhConfig);
+    schemaExport
+    ??? .SetOutputFile(@"db.sql")
+    ??? .Execute(false, false, false);
+    
+    Console.WriteLine("An sql file has been generated at {0}",
+    ????????????????? Path.GetFullPath("db.sql"));
+    Console.ReadKey();
+    ```
+4. 运行，查看你的db.sql文件。
+
+## 9.Updating the database 生成更新数据库的脚本
+1. 打开Program.cs
+2. 添加引用:
+    ```c#
+    using Eg.Core;
+    using NHibernate.Mapping.ByCode; 
+    using NHibernate.Tool.hbm2ddl;
+    ```
+3. 编辑Main方法:
+    ```c#
+    var nhConfig = new Configuration().Configure();
+    var mapper = new ConventionModelMapper();
+    nhConfig.AddMapping(mapper.CompileMappingFor(new[] { typeof(TestClass) }));
+    var update = new SchemaUpdate(nhConfig);
+    update.Execute(false, true);
+    Console.WriteLine("The tables have been updated");
+    Console.ReadKey();
+    ```
+4. 运行，查看数据库中的表。
+5. 修改TestClass的属性:
+    ```c#
+    public virtual string Description { get; set; }
+    ```
+6. 再次运行，看是否新增了一列Description。
+
+## 10.Using NHibernate schema tool 使用NHibernate Schema Tool
+下载最新的NHibernate Schema Tool。(http://nst.codeplex.com/)
+
+安装步骤:  
+1. 在C:\Program Files创建一个新文件夹NHibernateSchemaTool。
+2. 复制nst.exe到文件夹.
+3. 添加C:\Program Files\NHibernateSchemaTool到Path中.
+
+使用步骤:
+1. 编译
+2. 打开命令行至hibernate.cfg.xml所在目录。
+3. 运行命令:
+    ```bash
+    nst /c:hibernate.cfg.xml /a:Eg
+    .Core.dll /o:Create.
+    ```
