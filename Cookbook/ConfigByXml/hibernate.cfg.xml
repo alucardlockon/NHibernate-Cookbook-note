@@ -1,15 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
     <session-factory>
+        <property name="connection.driver_class">
+            NHibernate.Driver.OracleClientDriver
+        </property>
         <property name="dialect">
-            NHibernate.Dialect.MsSql2012Dialect, NHibernate
+            NHibernate.Dialect.Oracle10gDialect
         </property>
         <property name="connection.connection_string">
-            Server=.\SQLEXPRESS; Database=NHCookbook;
-            Trusted_Connection=SSPI
+            Data Source=orcl;User ID=dev_test;password=test123
         </property>
         <property name="adonet.batch_size">
-            100
+            50
         </property>
     </session-factory>
 </hibernate-configuration>

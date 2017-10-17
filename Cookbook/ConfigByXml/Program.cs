@@ -1,12 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
+using NHibernate;
+using NHibernate.Cfg;
 
 namespace ConfigByXml
 {
-    internal class Program
+    internal static class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
+            Configuration nhConfig = new Configuration().Configure();
+            ISessionFactory sessionFactory = nhConfig.BuildSessionFactory();
+            Console.WriteLine("NHibernate Configured!");
+            Console.ReadKey();
         }
     }
 }
