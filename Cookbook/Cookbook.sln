@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook", "Cookbook\Cookbo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigByXml", "ConfigByXml\ConfigByXml.csproj", "{AA4C58B1-26EF-41ED-928A-8CC2E688862F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{57B7F58F-1563-4F3C-968F-77C489A21531}"
+ProjectSection(SolutionItems) = preProject
+	Docs\chapter1-configuration-and-schema.md = Docs\chapter1-configuration-and-schema.md
+	Docs\chapter2-models-and -mappings.md = Docs\chapter2-models-and -mappings.md
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
