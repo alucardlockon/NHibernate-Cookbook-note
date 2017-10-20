@@ -1,4 +1,4 @@
-﻿namespace Cookbook.Model
+﻿namespace Eg.Core
 {
     public class Product : Entity
     {

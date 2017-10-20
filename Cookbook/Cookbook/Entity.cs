@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cookbook.Model
+namespace Cookbook
 {
     public abstract class Entity
     {
