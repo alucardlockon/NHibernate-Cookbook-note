@@ -1,4 +1,5 @@
 ﻿using System;
+using ConfigByXml.MappingWithXml;
 using NHibernate;
 using NHibernate.Cfg;
 
@@ -11,6 +12,7 @@ namespace ConfigByXml
             Configuration nhConfig = new Configuration().Configure();
             ISessionFactory sessionFactory = nhConfig.BuildSessionFactory();
             Console.WriteLine("NHibernate Configured!");
+            
             Console.ReadKey();
         }
     }
