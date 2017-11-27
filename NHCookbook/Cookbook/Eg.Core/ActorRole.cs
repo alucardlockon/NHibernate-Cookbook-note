@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Eg.Core
 {
-    public class Movie : Product
+    public class ActorRole : Entity
     {
 
-        public virtual string Director { get; set; }
-        public virtual IList<ActorRole> Actors { get; set; }
+        public virtual string Actor { get; set; }
+        public virtual string Role { get; set; }
+
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActorRole.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Movie.cs" />
@@ -64,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Movie.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ActorRole.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
