@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActorRole.cs" />
+    <Compile Include="BaseClass\BaseEntity.cs" />
+    <Compile Include="BaseClass\Employee.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Movie.cs" />
