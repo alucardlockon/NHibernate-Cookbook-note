@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MappingRecipes.Components
 {
-    class Customer:Entity
+    class Customer : Entity
     {
         public virtual string Name { get; set; }
         public virtual Address BillingAddress { get; set; }

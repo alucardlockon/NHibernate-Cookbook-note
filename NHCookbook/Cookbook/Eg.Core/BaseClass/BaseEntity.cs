@@ -8,7 +8,6 @@ namespace Eg.Core.BaseClass
 {
     public abstract class Entity<TId>
     {
-
         public virtual TId Id { get; protected set; }
 
         public override bool Equals(object obj)
@@ -19,7 +18,7 @@ namespace Eg.Core.BaseClass
         private static bool IsTransient(Entity<TId> obj)
         {
             return obj != null &&
-            Equals(obj.Id, default(TId));
+                   Equals(obj.Id, default(TId));
         }
 
         private Type GetUnproxiedType()
@@ -36,13 +35,13 @@ namespace Eg.Core.BaseClass
                 return true;
 
             if (!IsTransient(this) &&
-            !IsTransient(other) &&
-            Equals(Id, other.Id))
+                !IsTransient(other) &&
+                Equals(Id, other.Id))
             {
                 var otherType = other.GetUnproxiedType();
                 var thisType = GetUnproxiedType();
                 return thisType.IsAssignableFrom(otherType) ||
-                otherType.IsAssignableFrom(thisType);
+                       otherType.IsAssignableFrom(thisType);
             }
 
             return false;
@@ -54,6 +53,5 @@ namespace Eg.Core.BaseClass
                 return base.GetHashCode();
             return Id.GetHashCode();
         }
-
     }
 }

@@ -16,7 +16,6 @@ namespace MappingRecipes.Bidirectional
 
         protected override void AddInitialData(ISession session)
         {
-            
-  }
+        }
+    }
 }
- }

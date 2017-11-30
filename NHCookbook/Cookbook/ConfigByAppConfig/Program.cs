@@ -31,18 +31,17 @@ namespace ConfigByAppConfig
             // Create Sql
             var nhConfig = new Configuration().Configure();
             var mapper = new ConventionModelMapper();
-            nhConfig.AddMapping(mapper.CompileMappingFor(new[] { typeof(TestClass) }));
+            nhConfig.AddMapping(mapper.CompileMappingFor(new[] {typeof(TestClass)}));
 
             var schemaExport = new SchemaExport(nhConfig);
-            
+
             schemaExport
-             .SetOutputFile(@"db.sql")
-             .Execute(false, false, false);
+                .SetOutputFile(@"db.sql")
+                .Execute(false, false, false);
 
             Console.WriteLine("An sql file has been generated at {0}",
-             Path.GetFullPath("db.sql"));
+                Path.GetFullPath("db.sql"));
             Console.ReadKey();
-
         }
     }
 }

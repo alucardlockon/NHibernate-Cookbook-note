@@ -14,11 +14,11 @@ namespace ConfigByFNH
         {
             log4net.Config.XmlConfigurator.Configure();
             var config = MsSqlConfiguration.MsSql2012
- .ConnectionString(connstr => connstr.FromConnectionStringWithKey("db"))
- .AdoNetBatchSize(100);
+                .ConnectionString(connstr => connstr.FromConnectionStringWithKey("db"))
+                .AdoNetBatchSize(100);
             var nhConfig = Fluently.Configure()
-             .Database(config)
-             .BuildConfiguration();
+                .Database(config)
+                .BuildConfiguration();
             var sessionFactory = nhConfig.BuildSessionFactory();
             Console.WriteLine("NHibernate configured fluently!");
             Console.ReadKey();

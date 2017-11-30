@@ -21,8 +21,8 @@ namespace MappingRecipes.MappingWithFluent
                 Name = "Fluent mapping - the movie",
                 Description = "Go with the flow.",
                 UnitPrice = 300,
-                Actors = { new ActorRole { Actor = "FNH", Role = "The mapper" } }
+                Actors = {new ActorRole {Actor = "FNH", Role = "The mapper"}}
             });
-  }
+        }
+    }
 }
- }

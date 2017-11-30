@@ -11,3 +11,10 @@ code
 约束（包含model inspector/model mapper）
 fluently(NHF)
 
+## Immutable(不可变)的实体
+```xml
+<class name="LogEntry" mutable="false">
+```
+第一次更改有效，之后NH会无视对于此实体的更改。常用于日志实体。
+
+

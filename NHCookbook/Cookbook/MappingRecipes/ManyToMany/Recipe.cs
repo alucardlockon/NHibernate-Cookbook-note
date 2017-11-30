@@ -13,13 +13,13 @@ namespace MappingRecipes.ManyToMany
         private Guid _frenchId;
 
         protected override void AddInitialData(
-        ISession session)
+            ISession session)
         {
-            var anna = new Student { Name = "Anna" };
-            var george = new Student { Name = "George" };
+            var anna = new Student {Name = "Anna"};
+            var george = new Student {Name = "George"};
 
-            var english = new Course { Name = "English" };
-            var french = new Course { Name = "French" };
+            var english = new Course {Name = "English"};
+            var french = new Course {Name = "French"};
 
             english.Students.Add(anna);
 
@@ -39,7 +39,7 @@ namespace MappingRecipes.ManyToMany
             var course2 = session.Get<Course>(_frenchId);
             Console.WriteLine("Course name: " + course2.Name);
             Console.WriteLine("Student count: " +
-            course2.Students.Count());
+                              course2.Students.Count());
         }
     }
 }

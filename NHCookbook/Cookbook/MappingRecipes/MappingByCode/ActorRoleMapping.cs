@@ -14,7 +14,9 @@ namespace MappingRecipes.MappingByCode
         public ActorRoleMapping()
         {
             Id(x => x.Id, x =>
-                    x.Generator(Generators.GuidComb));
+                x.Generator(Generators.GuidComb));
             Property(x => x.Actor);
             Property(x => x.Role);
-        } } }
+        }
+    }
+}

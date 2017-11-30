@@ -24,7 +24,7 @@ namespace MappingRecipes.MappingByCode
             mapper.AddMapping<ActorRoleMapping>();
 
             var mapping =
-           mapper.CompileMappingForAllExplicitlyAddedEntities();
+                mapper.CompileMappingForAllExplicitlyAddedEntities();
             cfg.AddMapping(mapping);
         }
 
@@ -35,12 +35,14 @@ namespace MappingRecipes.MappingByCode
                 Name = "Mapping by code - the movie",
                 Description = "An interesting documentary",
                 UnitPrice = 300,
-                Actors = new List<ActorRole> {
-                 new ActorRole {
-                     Actor = "You",
-                     Role = "The mapper"
-                     }
-                 }
+                Actors = new List<ActorRole>
+                {
+                    new ActorRole
+                    {
+                        Actor = "You",
+                        Role = "The mapper"
+                    }
+                }
             });
         }
     }

@@ -22,17 +22,12 @@ namespace MappingRecipes.Bidirectional
 
         public virtual IEnumerable<OrderItem> Items
         {
-            get
-            {
-                return _items;
-            }
+            get { return _items; }
         }
+
         public virtual IEnumerable<Project> Projects
         {
-            get
-            {
-                return _projects;
-            }
+            get { return _projects; }
         }
 
         public virtual bool AddItem(OrderItem newItem)
@@ -46,16 +41,17 @@ namespace MappingRecipes.Bidirectional
         }
 
         public virtual bool RemoveItem(
-        OrderItem itemToRemove)
+            OrderItem itemToRemove)
         {
             if (itemToRemove != null &&
-            _items.Remove(itemToRemove))
+                _items.Remove(itemToRemove))
             {
                 itemToRemove.SetOrder(null);
                 return true;
             }
             return false;
         }
+
         public virtual bool ConnectProject(Project project)
         {
             if (project != null && _projects.Add(project))

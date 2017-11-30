@@ -20,8 +20,8 @@ namespace MappingRecipes.Enumerations
         public override void RunQueries(ISession session)
         {
             var accounts = session.QueryOver<Account>()
-            .OrderBy(x => x.Name).Asc
-            .List();
+                .OrderBy(x => x.Name).Asc
+                .List();
 
             foreach (var account in accounts)
             {

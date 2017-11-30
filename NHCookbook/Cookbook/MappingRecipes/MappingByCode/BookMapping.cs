@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NH4CookbookHelpers.Mapping.Model;
 using NHibernate.Mapping.ByCode.Conformist;
+
 namespace MappingRecipes.MappingByCode
 {
     public class BookMapping : SubclassMapping<Book>

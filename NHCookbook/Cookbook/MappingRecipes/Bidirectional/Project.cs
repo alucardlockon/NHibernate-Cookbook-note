@@ -14,14 +14,12 @@ namespace MappingRecipes.Bidirectional
         {
             _orders = new HashSet<Order>();
         }
+
         public virtual Guid Id { get; protected set; }
 
         public virtual IEnumerable<Order> Orders
         {
-            get
-            {
-                return _orders;
-            }
+            get { return _orders; }
         }
 
         public virtual bool ConnectOrder(Order order)

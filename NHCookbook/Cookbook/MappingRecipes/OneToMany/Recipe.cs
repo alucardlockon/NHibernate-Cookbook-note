@@ -16,21 +16,22 @@ namespace MappingRecipes.OneToMany
         {
             cfg.AddAssembly(typeof(Product).Assembly);
         }
+
         protected override void AddInitialData(ISession session)
         {
             session.Save(new Movie
             {
                 Name = "Hibernation",
                 Description =
-            "The countdown for the lift-off has begun",
+                    "The countdown for the lift-off has begun",
                 UnitPrice = 300,
                 Actors = new List<ActorRole>
-                 {
-                 new ActorRole
-                 {
-                 Actor = "Adam Quintero",
-                 Role = "Joseph Wood"
-                 }
+                {
+                    new ActorRole
+                    {
+                        Actor = "Adam Quintero",
+                        Role = "Joseph Wood"
+                    }
                 }
             });
         }

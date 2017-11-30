@@ -10,8 +10,8 @@ namespace MappingRecipes.Bidirectional
     {
         protected OrderItem()
         {
-
         }
+
         public OrderItem(string name)
         {
             Name = name;
@@ -37,7 +37,6 @@ namespace MappingRecipes.Bidirectional
 
             if (newOrder != null)
                 newOrder.AddItem(this);
-
         }
     }
 }

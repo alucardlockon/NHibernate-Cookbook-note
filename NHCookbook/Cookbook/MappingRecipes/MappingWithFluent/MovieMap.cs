@@ -10,9 +10,9 @@ namespace MappingRecipes.MappingWithFluent
             DiscriminatorValue("Movie");
             Map(m => m.Director);
             HasMany(m => m.Actors)
-            .KeyColumn("MovieId")
-            .AsList(l => l.Column("ActorIndex"))
-            .Cascade.AllDeleteOrphan();
+                .KeyColumn("MovieId")
+                .AsList(l => l.Column("ActorIndex"))
+                .Cascade.AllDeleteOrphan();
         }
     }
 }

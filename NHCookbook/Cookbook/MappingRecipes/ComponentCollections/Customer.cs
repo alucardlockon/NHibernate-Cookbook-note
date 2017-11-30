@@ -13,6 +13,7 @@ namespace MappingRecipes.ComponentCollections
             Addresses = new List<Address>();
             Tags = new HashSet<string>();
         }
+
         public virtual Guid Id { get; protected set; }
         public virtual string Name { get; set; }
         public virtual IList<Address> Addresses { get; set; }

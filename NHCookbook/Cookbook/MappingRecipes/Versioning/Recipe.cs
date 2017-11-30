@@ -20,7 +20,7 @@ namespace MappingRecipes.Versioning
         }
 
         public override void RunQueries(
-        ISessionFactory sessionFactory)
+            ISessionFactory sessionFactory)
         {
             try
             {
@@ -29,27 +29,24 @@ namespace MappingRecipes.Versioning
                 using (var tx1 = s1.BeginTransaction())
                 using (var tx2 = s2.BeginTransaction())
                 {
-
                     var product1 = s1.Get<VersionedProduct>(1);
 
                     var product2 = s2.Get<VersionedProduct>(1);
-                product1.Name = "Modified in session 1";
+                    product1.Name = "Modified in session 1";
 
-                product2.Name = "Modified in session 2";
+                    product2.Name = "Modified in session 2";
 
-                tx1.Commit();
-                Console.WriteLine("Commit 1");
-                //This should fail
-                tx2.Commit();
-                Console.WriteLine("Commit 2");
-
-            }
-
- }
-  catch (Exception ex)
-  {
-   Console.Error.WriteLine(ex);
-  }
-}
+                    tx1.Commit();
+                    Console.WriteLine("Commit 1");
+                    //This should fail
+                    tx2.Commit();
+                    Console.WriteLine("Commit 2");
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(ex);
+            }
+        }
+    }
 }

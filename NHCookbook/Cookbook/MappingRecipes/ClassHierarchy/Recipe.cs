@@ -11,8 +11,9 @@ namespace MappingRecipes.ClassHierarchy
         {
             cfg.AddAssembly(typeof(Product).Assembly);
         }
+
         protected override void AddInitialData(
-        ISession session)
+            ISession session)
         {
             session.Save(new Book
             {
@@ -25,10 +26,11 @@ namespace MappingRecipes.ClassHierarchy
                 Director = "Olivier Nakache"
             });
         }
+
         public override void RunQueries(ISession session)
         {
             session.CreateQuery("from Product")
-            .List<Product>();
+                .List<Product>();
         }
     }
 }

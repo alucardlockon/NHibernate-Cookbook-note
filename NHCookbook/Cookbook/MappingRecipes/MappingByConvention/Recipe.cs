@@ -14,9 +14,9 @@ namespace MappingRecipes.MappingByConvention
         {
             var mapper = new MyModelMapper();
             var mapping = mapper
-            .CompileMappingFor(typeof(Product).Assembly
-            .GetExportedTypes()
-            .Where(x => x.Namespace == typeof(Product).Namespace));
+                .CompileMappingFor(typeof(Product).Assembly
+                    .GetExportedTypes()
+                    .Where(x => x.Namespace == typeof(Product).Namespace));
 
             cfg.AddMapping(mapping);
         }
@@ -28,12 +28,14 @@ namespace MappingRecipes.MappingByConvention
                 Name = "Mapping by convention - the movie",
                 Description = "An interesting documentary",
                 UnitPrice = 300,
-                Actors = new List<ActorRole> {
- new ActorRole {
- Actor = "NHibernate",
- Role = "The mapper"
- }
- }
+                Actors = new List<ActorRole>
+                {
+                    new ActorRole
+                    {
+                        Actor = "NHibernate",
+                        Role = "The mapper"
+                    }
+                }
             });
         }
     }

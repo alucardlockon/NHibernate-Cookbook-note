@@ -1,6 +1,7 @@
 ﻿using System;
 using NH4CookbookHelpers;
 using NHibernate;
+
 namespace MappingRecipes.Components
 {
     public class Recipe : HbmMappingRecipe
@@ -10,18 +11,21 @@ namespace MappingRecipes.Components
             session.Save(new Customer
             {
                 Name = "Max Weinberg",
-                BillingAddress = new Address { Lines = "E Street 1", City = "Belmar", State = "New Jersey", ZipCode = "123" },
-                ShippingAddress = new Address { Lines = "Home street", City = "Newark", State = "New Jersey", ZipCode = "123" }
+                BillingAddress =
+                    new Address {Lines = "E Street 1", City = "Belmar", State = "New Jersey", ZipCode = "123"},
+                ShippingAddress =
+                    new Address {Lines = "Home street", City = "Newark", State = "New Jersey", ZipCode = "123"}
             });
         }
+
         public override void
-RunQueries(ISession session)
+            RunQueries(ISession session)
         {
             var customer = session.QueryOver<Customer>()
-.SingleOrDefault();
+                .SingleOrDefault();
             Console.WriteLine(
-           "Customer {0} has a billing address in {1}",
-            customer.Name, customer.BillingAddress.City);
+                "Customer {0} has a billing address in {1}",
+                customer.Name, customer.BillingAddress.City);
         }
     }
 }
