@@ -69,6 +69,8 @@
     <Compile Include="Bidirectional\OrderItem.cs" />
     <Compile Include="Bidirectional\Project.cs" />
     <Compile Include="Bidirectional\Recipe.cs" />
+    <Compile Include="CalculatedProperties\Invoice.cs" />
+    <Compile Include="CalculatedProperties\Recipe.cs" />
     <Compile Include="ClassHierarchy\Recipe.cs" />
     <Compile Include="ComponentCollections\Address.cs" />
     <Compile Include="ComponentCollections\Customer.cs" />
@@ -76,6 +78,8 @@
     <Compile Include="Components\Address.cs" />
     <Compile Include="Components\Customer.cs" />
     <Compile Include="Components\Recipe.cs" />
+    <Compile Include="DynamicComponents\Contact.cs" />
+    <Compile Include="DynamicComponents\Recipe.cs" />
     <Compile Include="Enumerations\Account.cs" />
     <Compile Include="Enumerations\AccountTypes.cs" />
     <Compile Include="Enumerations\Recipe.cs" />
@@ -93,6 +97,11 @@
     <Compile Include="MappingByCode\Recipe.cs" />
     <Compile Include="MappingByConvention\MyModelMapper.cs" />
     <Compile Include="MappingByConvention\Recipe.cs" />
+    <Compile Include="MappingJoins\Article.cs" />
+    <Compile Include="MappingJoins\Recipe.cs" />
+    <Compile Include="MappingSubselects\PageHit.cs" />
+    <Compile Include="MappingSubselects\PageStatisticsEntry.cs" />
+    <Compile Include="MappingSubselects\Recipe.cs" />
     <Compile Include="MappingWithFluent\ActorRoleMap.cs" />
     <Compile Include="MappingWithFluent\BookMap.cs" />
     <Compile Include="MappingWithFluent\MovieMap.cs" />
@@ -105,6 +114,8 @@
     <Compile Include="PropertyRefs\ContactPerson.cs" />
     <Compile Include="PropertyRefs\Customer.cs" />
     <Compile Include="PropertyRefs\Recipe.cs" />
+    <Compile Include="SerializableValues\Error.cs" />
+    <Compile Include="SerializableValues\Recipe.cs" />
     <Compile Include="Versioning\Recipe.cs" />
     <Compile Include="Versioning\VersionedProduct.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -140,10 +151,14 @@
     <EmbeddedResource Include="Components\Components.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ManyToMany\Student.hbm.xml" />
+    <EmbeddedResource Include="ManyToMany\Student.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ManyToMany\Course.hbm.xml" />
+    <EmbeddedResource Include="ManyToMany\Course.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ComponentCollections\Customer.hbm.xml" />
@@ -169,7 +184,19 @@
     <EmbeddedResource Include="LazyProperties\Article.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MappingJoins\" />
+    <EmbeddedResource Include="CalculatedProperties\Article.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingJoins\Article.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SerializableValues\Error.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DynamicComponents\Contact.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MappingSubselects\Mappings.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.106.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.106.0\build\net46\System.Data.SQLite.Core.targets')" />
