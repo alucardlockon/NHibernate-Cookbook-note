@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ActionFilterExample.Models.Book>
+
+@{
+    ViewBag.Title = "Books";
+}
+<h2>Books</h2>
+<ul>
+    @foreach (var book in Model)
+    {
+        <li>@book - @book.Author</li>
+    }
+</ul>
