@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SessionPerPresenter", "Sess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SessionRecipes", "SessionRecipes\SessionRecipes.csproj", "{7346E663-9FE0-4BDD-AC26-A5DCCAB1C24B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryRecipes", "QueryRecipes\QueryRecipes.csproj", "{D81F5C64-2E93-4543-93C6-629BBC2FD1EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{7346E663-9FE0-4BDD-AC26-A5DCCAB1C24B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7346E663-9FE0-4BDD-AC26-A5DCCAB1C24B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7346E663-9FE0-4BDD-AC26-A5DCCAB1C24B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D81F5C64-2E93-4543-93C6-629BBC2FD1EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81F5C64-2E93-4543-93C6-629BBC2FD1EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81F5C64-2E93-4543-93C6-629BBC2FD1EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81F5C64-2E93-4543-93C6-629BBC2FD1EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
