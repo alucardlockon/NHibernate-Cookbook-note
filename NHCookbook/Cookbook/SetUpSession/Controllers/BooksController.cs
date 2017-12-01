@@ -10,16 +10,30 @@ namespace ActionFilterExample.Controllers
 {
     public class BooksController : Controller
     {
-        [NHibernateSession]
+
+        //[NHibernateSession]
+        //public ActionResult Index()
+        //{
+        //    var books = DataAccessLayer.GetBooks()
+        //    .Select(x => new Book
+        //    {
+        //        Id = x.Id,
+        //        Name = x.Name,
+        //        Author = x.Author
+        //    });
+        //    return View(books);
+        //}
+
+        [NeedsPersistence]
         public ActionResult Index()
         {
             var books = DataAccessLayer.GetBooks()
-            .Select(x => new Book
-            {
-                Id = x.Id,
-                Name = x.Name,
-                Author = x.Author
-            });
+ .Select(x => new Book
+ {
+     Id = x.Id,
+     Name = x.Name,
+     Author = x.Author
+ });
             return View(books);
         }
     }

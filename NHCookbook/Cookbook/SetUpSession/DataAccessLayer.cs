@@ -11,6 +11,7 @@ namespace ActionFilterExample
     {
         public static IEnumerable<Book> GetBooks()
         {
+            /*
             var session = MvcApplication.SessionFactory
             .GetCurrentSession();
             using (var tx = session.BeginTransaction())
@@ -20,6 +21,14 @@ namespace ActionFilterExample
                 tx.Commit();
                 return books;
             }
+            */
+
+            var session = MvcApplication.SessionFactory
+ .GetCurrentSession();
+            var books = session.QueryOver<Book>()
+             .List();
+            return books;
+
         }
     }
 }
