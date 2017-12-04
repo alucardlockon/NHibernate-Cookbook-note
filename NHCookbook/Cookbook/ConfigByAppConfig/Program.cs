@@ -29,6 +29,7 @@ namespace ConfigByAppConfig
             */
 
             // Create Sql
+            /*
             var nhConfig = new Configuration().Configure();
             var mapper = new ConventionModelMapper();
             nhConfig.AddMapping(mapper.CompileMappingFor(new[] {typeof(TestClass)}));
@@ -42,6 +43,11 @@ namespace ConfigByAppConfig
             Console.WriteLine("An sql file has been generated at {0}",
                 Path.GetFullPath("db.sql"));
             Console.ReadKey();
+            */
+
+            var nhConfig = new ConfigurationBuilder().Build();
+
+
         }
     }
 }

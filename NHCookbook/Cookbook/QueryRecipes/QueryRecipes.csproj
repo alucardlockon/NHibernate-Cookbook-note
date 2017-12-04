@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvancedEagerLoading\Recipe.cs" />
     <Compile Include="CollectionFilters\Recipe.cs" />
     <Compile Include="DetachedQueries\Recipe.cs" />
     <Compile Include="EagerLoadingWithCriteria\Recipe.cs" />
@@ -69,7 +70,19 @@
     <Compile Include="EagerLoadingWithLinq\Recipe.cs" />
     <Compile Include="EagerLoadingWithQueryOver\Recipe.cs" />
     <Compile Include="EagerLoadingWithSql\Recipe.cs" />
+    <Compile Include="ExtraLazy\Accessory.cs" />
+    <Compile Include="ExtraLazy\Car.cs" />
+    <Compile Include="ExtraLazy\Recipe.cs" />
+    <Compile Include="Futures\PageOf.cs" />
+    <Compile Include="Futures\Queries.cs" />
+    <Compile Include="Futures\Recipe.cs" />
     <Compile Include="HqlBulkChanges\Recipe.cs" />
+    <Compile Include="MultiCriteria\PageOf.cs" />
+    <Compile Include="MultiCriteria\Queries.cs" />
+    <Compile Include="MultiCriteria\Recipe.cs" />
+    <Compile Include="MultiQueries\PageOf.cs" />
+    <Compile Include="MultiQueries\Queries.cs" />
+    <Compile Include="MultiQueries\Recipe.cs" />
     <Compile Include="NamedQueries\NamedQueries.cs" />
     <Compile Include="NamedQueries\Recipe.cs" />
     <Compile Include="Program.cs" />
@@ -87,6 +100,9 @@
     <Compile Include="QueryBySql\SqlQueries.cs" />
     <Compile Include="QueryOverProjections\QueryOverAggregateQueries.cs" />
     <Compile Include="QueryOverProjections\Recipe.cs" />
+    <Compile Include="ReadOnly\Recipe.cs" />
+    <Compile Include="ResultTransformers\Recipe.cs" />
+    <Compile Include="Stateless\Recipe.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -112,6 +128,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="NamedQueries\Queries.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="ExtraLazy\Car.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
