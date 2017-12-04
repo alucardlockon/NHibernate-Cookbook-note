@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="QueryRecipes" namespace="QueryRecipes.ExtraLazy">
+  <class name="Car">
+    <id name="Id">
+      <generator class="guid.comb"/>
+    </id>
+    <property name="Make"/>
+    <property name="Model"/>
+    <set name="Accessories" table="CarAccessories" lazy="extra" cascade="all">
+      <key column="CarId" foreign-key=""/>
+      <composite-element class="Accessory">
+        <property name="Name"/>
+      </composite-element>
+    </set>
+  </class>
+</hibernate-mapping>

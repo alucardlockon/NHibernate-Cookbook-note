@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollectionFilters\Recipe.cs" />
     <Compile Include="DetachedQueries\Recipe.cs" />
     <Compile Include="EagerLoadingWithCriteria\Recipe.cs" />
     <Compile Include="EagerLoadingWithHql\Recipe.cs" />
